@@ -1,9 +1,11 @@
-const express = require('express');
-const cors = require('cors');
-const nodemailer = require('nodemailer');
-const multer = require('multer');
-const path = require('path');
-require('dotenv').config();
+import express from 'express';
+import cors from 'cors';
+import nodemailer from 'nodemailer';
+import multer from 'multer';
+import path from 'path';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -18,7 +20,7 @@ const upload = multer();
 
 // Create nodemailer transporter
 const createTransporter = () => {
-  return nodemailer.createTransporter({
+  return nodemailer.createTransport({
     service: 'gmail',
     host: 'smtp.gmail.com',
     port: 587,
